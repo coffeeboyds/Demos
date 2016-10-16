@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WcfMessengerController" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IWcfMessengerService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256>
+                </sp:Basic256>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict>
+                </sp:Strict>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <msf:Streamed xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+        </msf:Streamed>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Common.Models" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWcfMessengerService_CreateMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMessage" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_CreateMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_GetMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_GetMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_GetAllMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMessages" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_GetAllMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_UpdateMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMessage" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_UpdateMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_DeleteMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessage" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_DeleteMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_DeleteAllMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllMessages" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_DeleteAllMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAllMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_UploadGarbageData_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadGarbageData" />
+  </wsdl:message>
+  <wsdl:message name="IWcfMessengerService_UploadGarbageData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadGarbageDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWcfMessengerService">
+    <wsdl:operation name="CreateMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfMessengerService/CreateMessage" message="tns:IWcfMessengerService_CreateMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfMessengerService/CreateMessageResponse" message="tns:IWcfMessengerService_CreateMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfMessengerService/GetMessage" message="tns:IWcfMessengerService_GetMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfMessengerService/GetMessageResponse" message="tns:IWcfMessengerService_GetMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfMessengerService/GetAllMessages" message="tns:IWcfMessengerService_GetAllMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfMessengerService/GetAllMessagesResponse" message="tns:IWcfMessengerService_GetAllMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfMessengerService/UpdateMessage" message="tns:IWcfMessengerService_UpdateMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfMessengerService/UpdateMessageResponse" message="tns:IWcfMessengerService_UpdateMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfMessengerService/DeleteMessage" message="tns:IWcfMessengerService_DeleteMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfMessengerService/DeleteMessageResponse" message="tns:IWcfMessengerService_DeleteMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfMessengerService/DeleteAllMessages" message="tns:IWcfMessengerService_DeleteAllMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfMessengerService/DeleteAllMessagesResponse" message="tns:IWcfMessengerService_DeleteAllMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadGarbageData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfMessengerService/UploadGarbageData" message="tns:IWcfMessengerService_UploadGarbageData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfMessengerService/UploadGarbageDataResponse" message="tns:IWcfMessengerService_UploadGarbageData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IWcfMessengerService" type="tns:IWcfMessengerService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IWcfMessengerService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CreateMessage">
+      <soap12:operation soapAction="http://tempuri.org/IWcfMessengerService/CreateMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap12:operation soapAction="http://tempuri.org/IWcfMessengerService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessages">
+      <soap12:operation soapAction="http://tempuri.org/IWcfMessengerService/GetAllMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <soap12:operation soapAction="http://tempuri.org/IWcfMessengerService/UpdateMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <soap12:operation soapAction="http://tempuri.org/IWcfMessengerService/DeleteMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllMessages">
+      <soap12:operation soapAction="http://tempuri.org/IWcfMessengerService/DeleteAllMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadGarbageData">
+      <soap12:operation soapAction="http://tempuri.org/IWcfMessengerService/UploadGarbageData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WcfMessengerController">
+    <wsdl:port name="NetTcpBinding_IWcfMessengerService" binding="tns:NetTcpBinding_IWcfMessengerService">
+      <soap12:address location="net.tcp://localhost:8733/Design_Time_Addresses/WcfMessengerService/WcfMessenger/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8733/Design_Time_Addresses/WcfMessengerService/WcfMessenger/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
