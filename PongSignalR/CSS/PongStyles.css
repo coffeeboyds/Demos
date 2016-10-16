@@ -1,0 +1,62 @@
+﻿#player1 {
+    background-color: red;
+    width: 20px;
+    height: 100px;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+
+#player2 {
+    background-color: green;
+    width: 20px;
+    height: 100px;
+    position: absolute;
+    left: 880px;
+    top: 100px;
+}
+
+#ball {
+    background-color: blue;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 490px;
+    top: 240px;
+}
+
+#area {
+    width: 1000px;
+    height: 500px;
+    background-color: hotpink;
+}
+
+#leftverticalboundary {
+    background-color: black;
+    width: 10px;
+    height: 500px;
+    position: absolute;
+}
+
+#rightverticalboundary {
+    background-color : black;
+    width: 10px;
+    height: 500px;
+    left: 1000px;
+    position: absolute;
+}
+
+#tophorizontalboundary {
+    background-color: black;
+    width: 1000px;
+    height: 10px;
+    position: absolute;
+}
+
+#bottomhorizontalboundary {
+    background-color : black;
+    width: 1000px;
+    height: 10px;
+    top: 500px;
+    position: absolute;
+}
